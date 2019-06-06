@@ -206,17 +206,17 @@ def playNoCheat(data_file):
 
     goNao.goodbye()
 
-def playCheat(data_file):
+def playCheat(data_file, start_round=10, last_round=19, num_throws=30):
     """Have the nao play in a cheating mode
 
     cheat_type is either "win", "draw" or "lose"
     """
 
-    cheating_start_round = 10
-    cheating_last_round = 19
+    cheating_start_round = start_round
+    cheating_last_round = last_round
 
     i = 0
-    total_throws = 30
+    total_throws = num_throws
     cheats_remaining = 2 #number of times the robot still needs to cheat
     extend = 0 #number of rounds to extend the cheating section for
 
@@ -346,9 +346,8 @@ elif(choice[0] == "p"):
 
     #Introductory Interaction
 
-    print "\nPlease choose a conversation prompt:"
+    print "\nPlease choose a conversation prompt (traverse prompts in order):"
     print " \"h\" is for hi"
-    print " \"m\" is for meet"
     print " \"r\" is for ready"
     print " \"g\" is for goodbye"
     print " \"d\" is for demo"
@@ -362,8 +361,6 @@ elif(choice[0] == "p"):
             continue
         if prompt == "h":
             goNao.sayHi()
-        elif prompt == "m":
-            goNao.sayMeet()
         elif prompt == "r":
             goNao.sayStanding()
             postureProxy.goToPosture("Stand", 1.0)
@@ -401,10 +398,10 @@ elif(choice[0] == "p"):
     goNao.releaseNao()
 
     #Exit Interaction
-    print "\nPlease choose a conversation prompt:"
+    print "\nPlease choose a conversation prompt (traverse prompts in order):"
     print " \"h\" is for hi"
-    print " \"f\" is for finished"
     print " \"g\" is for goodbye"
+    print " \"f\" is for finished"
 
     prompt = ""
     while prompt != "f":
