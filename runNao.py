@@ -351,7 +351,7 @@ elif(choice[0] == "p"):
     print " \"r\" is for ready"
     print " \"g\" is for goodbye"
     print " \"d\" is for demo"
-    print " \"f\" is for finished"
+    print " \"p\" is for play"
 
     prompt = ""
     while prompt != "f":
@@ -376,7 +376,7 @@ elif(choice[0] == "p"):
             goNao.demo()
         elif prompt == "g":
             goNao.sayBye()
-        elif prompt == "f":
+        elif prompt == "p":
             break
 
 
