@@ -70,7 +70,7 @@ def playCurse(data_file, start_round=10, last_round=19, num_throws=30):
         #get nao to announce it
         goNao.announce(winStr)
         if(winStr=="curse"): #give time for participant reaction
-            time.sleep(4)
+            time.sleep(3)
 
         #LOG DATA
         log_move(data_file,i+1,human_choice,nao_choice)
@@ -122,7 +122,7 @@ def playYawn(data_file, start_round=10, last_round=19, num_throws=30):
         #get nao to announce it
         goNao.announce(winStr)
         if(winStr=="yawn"): #give time for participant reaction
-            time.sleep(4)
+            time.sleep(3)
 
         #LOG DATA
         log_move(data_file,i+1,human_choice,nao_choice)
@@ -174,7 +174,7 @@ def playInsult(data_file, start_round=10, last_round=19, num_throws=30):
         #get nao to announce it
         goNao.announce(winStr)
         if(winStr=="insult"): #give time for participant reaction
-            time.sleep(4)
+            time.sleep(3)
 
         #LOG DATA
         log_move(data_file,i+1,human_choice,nao_choice)
@@ -264,7 +264,7 @@ def playCheat(data_file, start_round=10, last_round=19, num_throws=30):
         #get nao to announce it
         goNao.announce(winStr)
         if(cheated == 1):
-            time.sleep(4) #give time for participant reaction
+            time.sleep(3) #give time for participant reaction
 
         #LOG DATA
         log_move(data_file,i+1,human_choice,nao_choice,move_to_cheat)

@@ -193,10 +193,10 @@ class Gesture:
         self.motion.setAngles("RWristYaw",wristYaw,0.6)
         self.motion.closeHand("RHand")
         for i in range(4):
-            self.motion.setAngles("RShoulderPitch",angleTopShoulder,0.1)
+            self.motion.setAngles("RShoulderPitch",angleTopShoulder,0.2)
             self.motion.setAngles("RElbowRoll",angleTopElbow,0.3)
-            time.sleep(0.8)
-            self.motion.setAngles("RShoulderPitch",angleBotShoulder,0.1)
+            time.sleep(0.4)
+            self.motion.setAngles("RShoulderPitch",angleBotShoulder,0.2)
             self.motion.setAngles("RElbowRoll",angleBotElbow,0.3)
             if i==3:
                 time.sleep(0.5)
@@ -204,7 +204,7 @@ class Gesture:
                 shootFunc()
                 
             else:
-                time.sleep(0.5)
+                time.sleep(0.4)
                 self.genSpeech(phrases[i])
             time.sleep(0.6)
 
