@@ -33,6 +33,7 @@ class Gesture:
         self.insult = anim.insult
         self.yawn = anim.yawn
         self.hi = anim.hi
+        self.hey = anim.hey
         self.meet = anim.meet
         self.standing =anim.standing
         self.ready = anim.ready
@@ -111,12 +112,12 @@ class Gesture:
         self.posture.goToPosture("Stand", 1.0)
 
         self.genSpeech("I am excited to play rock peyper scissors with you. Let me demonstrate the gestures that I can make")
-        time.sleep(8)
+        time.sleep(5)
         #INITIALIZE POSITION OF THE HAND
         self.genSpeech("Let me show you how I do rock")
         time.sleep(2)
         self.motion.setAngles("RShoulderPitch",angleBotShoulder,0.01)
-        self.motion.setAngles("RElbowRoll",angleBotElbow,0.3)
+        self.motion.setAngles("RElbowRoll",angleBotElbow,0.2)
         self.rockShoot()
         time.sleep(1)
         self.genSpeech("This is my rock gesture")
@@ -125,7 +126,6 @@ class Gesture:
         self.genSpeech("Let me show you how I do paper")
         time.sleep(2)
         self.paperShoot()
-        time.sleep(1)
         self.genSpeech("This is my paper gesture")
         time.sleep(3)
 
@@ -140,13 +140,7 @@ class Gesture:
         time.sleep(1)
         self.prepareThrow(self.scissorsShoot)
         time.sleep(1)
-
-        self.motion.setAngles("RShoulderPitch",1.6,0.01)
-        self.motion.setAngles("RElbowRoll",0.3,0.1)
-        self.motion.closeHand("RHand")
-        self.motion.stiffnessInterpolation("LShoulderPitch",0.0,self.stiffness)
-        self.motion.stiffnessInterpolation("LElbowRoll",0.0,self.stiffness)
-        self.motion.stiffnessInterpolation("LHand",0.0,self.stiffness)
+        
 
 
 
@@ -206,7 +200,7 @@ class Gesture:
             else:
                 time.sleep(0.4)
                 self.genSpeech(phrases[i])
-            time.sleep(0.6)
+            time.sleep(0.7)
 
     def prepareThrow2(self,shootFunc):
         angleTop = -0.5
@@ -279,20 +273,27 @@ class Gesture:
             self.genSpeech(self.yawn[randnr])
             time.sleep(1)
 
-    def headHi(self):
-        self.motion.setStiffnesses("Body",1.0)
-        headYawHi = -0.7
-        headYaw = 0.0
-        self.motion.setAngles("HeadYaw", headYawHi, 0.1)
-        time.sleep(1)
-        self.motion.setAngles("HeadYaw", headYaw, 0.1)
+    # What is this function for?
+    # def headHi(self):
+    #     self.motion.setStiffnesses("Body",1.0)
+    #     headYawHi = -0.7
+    #     headYaw = 0.0
+    #     self.motion.setAngles("HeadYaw", headYawHi, 0.1)
+    #     time.sleep(1)
+    #     self.motion.setAngles("HeadYaw", headYaw, 0.1)
 
-    def sayHi(self):
+    def sayHeyHead(self):
+        ##Removing this line in order to see if it increases Nao's responsiveness -- make sure to test if necessary
         self.motion.setStiffnesses("Body", 1.0)
         headYawHi = 0.3
         headYaw = 0.0
         self.motion.setAngles("HeadYaw", headYawHi, 0.1)
         time.sleep(1)
+        self.genSpeech(self.hey)
+        time.sleep(1)
+        self.motion.setAngles("HeadYaw", headYaw, 0.2)
+
+    def sayHi(self):
         self.genSpeech(self.hi)
 
     def sayMeet(self):

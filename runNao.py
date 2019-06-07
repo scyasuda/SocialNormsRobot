@@ -347,20 +347,26 @@ elif(choice[0] == "p"):
     #Introductory Interaction
 
     print "\nPlease choose a conversation prompt (traverse prompts in order):"
-    print " \"h\" is for hi"
+    print " \"h\" is for hey with head turn"
+    print " \"n\" is for hi without head turn"
+    print " \"m\" is for meet"
     print " \"r\" is for ready"
     print " \"g\" is for goodbye"
     print " \"d\" is for demo"
     print " \"p\" is for play"
 
     prompt = ""
-    while prompt != "f":
+    while prompt != "p":
         prompt = raw_input('Conversation Prompt: ').replace("\n","").replace("\r","")
-        if prompt not in ['h','m','r','d','g','f']:
+        if prompt not in ['h','n','m','r','d','g','p']:
             print(prompt+" not in list of acceptable commands")
             continue
         if prompt == "h":
+            goNao.sayHeyHead()
+        elif prompt == "n":
             goNao.sayHi()
+        elif prompt == "m":
+            goNao.sayMeet()
         elif prompt == "r":
             goNao.sayStanding()
             postureProxy.goToPosture("Stand", 1.0)
@@ -390,7 +396,7 @@ elif(choice[0] == "p"):
     if(choice=="pcheat"): playCheat(data_file)
     if(choice=="pcurse"): playCurse(data_file)
     if(choice=="pinsult"): playInsult(data_file)
-    if(choice=="pshort"): playCurse(data_file, 0, 5, 5)
+    if(choice=="pshort"): playCheat(data_file, 0, 5, 5)
     if(choice=="pyawn"): playYawn(data_file)
 
     postureProxy.goToPosture("Sit", 1.0)
@@ -399,7 +405,8 @@ elif(choice[0] == "p"):
 
     #Exit Interaction
     print "\nPlease choose a conversation prompt (traverse prompts in order):"
-    print " \"h\" is for hi"
+    print " \"h\" is for hi with head turn"
+    print " \"n\" is for hi without head turn"
     print " \"g\" is for goodbye"
     print " \"f\" is for finished"
 
@@ -410,6 +417,8 @@ elif(choice[0] == "p"):
             print(prompt+" not in list of acceptable commands")
             continue
         if prompt == "h":
+            goNao.sayHiHead()
+        elif prompt == "n":
             goNao.sayHi()
         elif prompt == "g":
             goNao.sayBye()

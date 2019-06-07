@@ -35,6 +35,8 @@ finish = ("That's all we have time for today. Thank you for playing with me."+
 
 hi = "Hi."
 
+hey = "Hey."
+
 meet = "It's nice to meet you."
 
 standing = "Okay, I'm going to stand up now."
